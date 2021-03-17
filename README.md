@@ -14,7 +14,7 @@ a better understanding of the problems you encountered during the developmemnt o
 
 ## Project Team
 - Haley Currence - Computer Science - Student Team Member
-- *Student's Name* - *major* - Student Team Member
+- Stephen Liu - Computer Science - Student Team Member
 - *Student's Name* - *major* - Student Team Member
 - *Student's Name* - *major* - Student Team Member
 - *Student's Name* - *major* - Student Team Member
