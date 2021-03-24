@@ -16,5 +16,5 @@ a better understanding of the problems you encountered during the developmemnt o
 - Haley Currence - Computer Science - Student Team Member
 - Stephen Liu - Computer Science - Student Team Member
 - Joshua Lopez-Boutier - Computer Science - Student Team Member
-- *Student's Name* - *major* - Student Team Member
+- Munim Rahman - Interdisciplinary Studies - Student Team Member
 - *Student's Name* - *major* - Student Team Member
