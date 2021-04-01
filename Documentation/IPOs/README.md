@@ -28,6 +28,7 @@
 
 ## Who Did What
 | Team Member | Modules |
+| --- | --- |
 | Stephen | Translator Page, Tax Page, Settings/Options Page |
 | Shashank | Translator, Tax Calculator |
 | Josh | Messages, Log-In Page, Main Page |
