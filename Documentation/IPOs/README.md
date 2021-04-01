@@ -14,10 +14,12 @@
 
 ### Application Manager
 * Log-In Page
+* Register Page
 * Main Page
 * Translator Page
 * Tax Page
 * Settings/Options Page
+* Credits Page
 
 ### Orchestration Services
 * Service Broker
@@ -33,3 +35,4 @@
 | Shashank | Translator, Tax Calculator |
 | Josh | Messages, Log-In Page, Main Page |
 | Haley | Application, Client Manager, Session Manager, Service Broker |
+| Munim | Register Page, Credits Page |
