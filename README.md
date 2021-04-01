@@ -18,4 +18,3 @@ a better understanding of the problems you encountered during the developmemnt o
 - Joshua Lopez-Boutier - Computer Science - Student Team Member
 - Munim Rahman - Interdisciplinary Studies - Student Team Member
 - Shashank Bhatt - Computer Science - Student Team Member
-- *Student's Name* - *major* - Student Team Member
