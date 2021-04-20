@@ -9,25 +9,25 @@ public class ServiceBroker {
 		Scanner in = new Scanner(input);
 		in.useDelimiter(",");
 		
-		String function = in.next();
-		String command = in.nextLine();
+		String serviceCode = in.next();
+		String serviceArgs = in.nextLine();
 		
 		Integer returnCode = -1;
 		
 		String output = "";
 		
-		switch(function)
+		switch(serviceCode)
 		{
 		case "MESSAGE":
-			output = callMessage(command);
+			output = callMessage(serviceArgs);
 			returnCode = 0;
 			break;
 		case "TRANSLATE":
-			output = callTranslator(command);
+			output = callTranslator(serviceArgs);
 			returnCode = 0;
 			break;
 		case "TAX":
-			output = callTaxCalc(command);
+			output = callTaxCalc(serviceArgs);
 			returnCode = 0;
 			break;
 		default:
@@ -41,9 +41,7 @@ public class ServiceBroker {
 	
 	private static String callTranslator(String query)
 	{
-		
 		//Calls the translate module using the service.txt file
-		
 		return query;
 	}
 	
