@@ -4,11 +4,40 @@ import org.junit.Test;
 
 public class ServiceBrokerTest {
 
+	/* 
+	//Blueprint Test
 	@Test
 	public void test() {
 		String input = "";
 		String expected = "";
-		String output = ServiceBroker.parseInstruction();
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}*/
+	
+	@Test
+	public void test1() {
+		String input = "TRANSLATE,GER,Dog";
+		String expected = "GER,Dog";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	
+	@Test
+	public void test2() {
+		String input = "TAX,2020,Single,10000";
+		String expected = "2020,Single,10000";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	
+	@Test
+	public void test3() {
+		String input = "MESSAGE,404,language";
+		String expected = "404,language";
+		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
 	}
