@@ -1,8 +1,9 @@
 import java.util.*;
+import java.io.*;
 
 public class ServiceBroker {
 	
-	protected String serviceFileLocation = "";
+	protected static String serviceFileLocation = "";
 	
 	public static String parseInstruction(String input)
 	{
@@ -10,50 +11,58 @@ public class ServiceBroker {
 		in.useDelimiter(",");
 		
 		String serviceCode = in.next();
-		String serviceArgs = in.nextLine();
 		
 		Integer returnCode = -1;
+		String returnData = "";
 		
-		String output = "";
+		Boolean foundFlag = false;
+		String utilityModuleLocation = "";
+		Scanner serviceFile = new Scanner(serviceFileLocation);
+		serviceFile.useDelimiter(",");
 		
-		switch(serviceCode)
+		do
 		{
-		case "MESSAGE":
-			output = callMessage(serviceArgs);
-			returnCode = 0;
-			break;
-		case "TRANSLATE":
-			output = callTranslator(serviceArgs);
-			returnCode = 0;
-			break;
-		case "TAX":
-			output = callTaxCalc(serviceArgs);
-			returnCode = 0;
-			break;
-		default:
-			output = callMessage("408");
+			//read service file codes for serviceCode
+			String code = serviceFile.next();
+			
+			if(code.equals(serviceCode))
+			{
+				utilityModuleLocation = serviceFile.nextLine();
+				foundFlag = true;
+			}
+			
+		}while(foundFlag==false || serviceFile.hasNext()==false);
+		
+		if(foundFlag)
+		{
+			String serviceArgs = in.nextLine();
+			try
+			{
+				//Call utlity module with serviceArgs as param
+				Process p = Runtime.getRuntime().exec(new String[]{utilityModuleLocation,serviceArgs});
+				BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+					
+				String curr = "";
+				do
+				{
+					curr = moduleOutput.readLine();
+					returnData += curr;
+				}while(curr != null);
+				
+				returnCode = 0;
+			} 
+			catch (IOException e)
+			{
+				returnData = e.getMessage();
+				returnCode = 5;
+			}
+		}
+		else
+		{
+			returnData = parseInstruction("MESSAGE,408");
 			returnCode = 4;
-			break;
 		}
 		
-		return returnCode + "," + output;
-	}
-	
-	private static String callTranslator(String query)
-	{
-		//Calls the translate module using the service.txt file
-		return query;
-	}
-	
-	private static String callTaxCalc(String query)
-	{
-		//Calls the Tax Calculator module
-		return query;
-	}
-	
-	private static String callMessage(String query)
-	{
-		//Calls the Message module
-		return query;
+		return returnCode + "," + returnData;
 	}
 }
