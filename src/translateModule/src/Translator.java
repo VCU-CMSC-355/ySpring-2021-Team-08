@@ -10,7 +10,7 @@ import java.io.*;
  * @author Stephen Liu
  * @version 04/18/2021 CMSC 355
  */
-public class Translator{
+public class Translator {
     protected String engWord;
     protected String language;
 
@@ -20,41 +20,40 @@ public class Translator{
      *
      * @param input The parameter list being passed to the translate module
      */
-    public Translator(String input){
+    public Translator(String input) {
         String[] parsedInput = input.split(",");
         this.engWord = parsedInput[0];
         this.language = parsedInput[1];
     }
 
     /**
-     * Takes a Translator object, sees if a language file that matches its language variable exists. If so, searches
-     * by line for the Translator's engWord (ignoring case). If it does, returns the other parsed section. If not,
-     * returns the error number for "word not found". If no language file exists for the Translator's language,
-     * returns the error number for "language not found".
+     * Calls a Translator object's translate method, sees if a language file that matches its language variable exists.
+     * If so, searches by line for the Translator's engWord (ignoring case). If it does, returns the other parsed
+     * section. If not, returns the error number for "word not found". If no language file exists for the Translator's
+     * language, returns the error number for "language not found".
      *
-     * @param T A Translator object
      * @return A String representing the correctly translated word if no exceptions are thrown, or the
      * corresponding error message number if an exception is thrown.
      */
-    public String translate(Translator T){
-        File file = new File("preFilePath" + T.language.toLowerCase() + ".txt"); //need to figure out how preFilePath will look
+    public String translate() {
+        File file = new File(this.language.toLowerCase() + ".txt");
         boolean wordFound = false;
         String[] word = new String[0];
 
-        try{
+        try {
             Scanner scan = new Scanner(file);
-            while(!wordFound && scan.hasNextLine()){
+            while (!wordFound && scan.hasNextLine()) {
                 word = scan.nextLine().split(",");
-                if (word[0].equalsIgnoreCase(T.engWord)){
+                if (word[0].equalsIgnoreCase(this.engWord)) {
                     wordFound = true;
                 }
             }
-            if(wordFound){
+            if (wordFound) {
                 return word[1];
-            } else{
+            } else {
                 return "813";
             }
-        } catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             return "805";
         }
     }
