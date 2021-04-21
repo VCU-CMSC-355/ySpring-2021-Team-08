@@ -5,6 +5,11 @@ public class ServiceBroker {
 	
 	protected static String serviceFileLocation = "";
 	
+	public static void main(String[] args)
+	{
+		parseInstruction(args[0]);
+	}
+	
 	public static String parseInstruction(String input)
 	{
 		Scanner in = new Scanner(input);
