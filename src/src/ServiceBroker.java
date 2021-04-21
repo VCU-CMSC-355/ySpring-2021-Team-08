@@ -38,7 +38,8 @@ public class ServiceBroker {
 			String serviceArgs = in.nextLine();
 			try
 			{
-				//Call utlity module with serviceArgs as param
+				serviceArgs = serviceArgs.replace(',', ' ');
+				utilityModuleLocation = "java -jar " + utilityModuleLocation + " " + serviceArgs;
 				Process p = Runtime.getRuntime().exec(new String[]{utilityModuleLocation,serviceArgs});
 				BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 					
