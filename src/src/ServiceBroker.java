@@ -25,7 +25,10 @@ public class ServiceBroker {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(parseInstruction("TRANSLATE,arg0,arg1"));
+		for(String arg : args)
+		{
+			parseInstruction(arg);
+		}
 	}
 	
 	public static String parseInstruction(String instruction)
