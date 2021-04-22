@@ -2,6 +2,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/*
+ * Harness for ServiceBrokerTesting
+ * Testing Stub: test.jar
+ */
 public class ServiceBrokerTest {
 
 	/* 
