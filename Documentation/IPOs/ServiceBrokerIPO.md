@@ -9,9 +9,9 @@ Function: Calls the translator, message, and tax calculator modules based upon t
 | | | ReturnData |
 
 Input: 
-		Instruction - formatted as "OPCODE,args"
+* Instruction - formatted as "OPCODE,args"
 Output: 
-		ReturnCode and ReturnData - formatted as "ReturnCode,ReturnData"
+* ReturnCode and ReturnData - formatted as "ReturnCode,ReturnData"
 
 Author: Haley Currence
 Version Date: 4/21/2021 CMSC 355 - Spring 2021
