@@ -17,3 +17,6 @@ Output:
 Author: Haley Currence
 
 Version Date: 4/21/2021 CMSC 355 - Spring 2021
+
+Pseudocode:
+1. Write Pseudocode.
