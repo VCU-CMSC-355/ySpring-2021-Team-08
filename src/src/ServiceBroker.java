@@ -25,7 +25,7 @@ public class ServiceBroker {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(parseInstruction("TRANSLATE,args"));
+		System.out.println(parseInstruction("TRANSLATE,arg0,arg1"));
 	}
 	
 	public static String parseInstruction(String instruction)
@@ -48,19 +48,22 @@ public class ServiceBroker {
 			Scanner serviceFile = new Scanner(brokerFile);
 			serviceFile.useDelimiter(",");
 			
+			//Searches through the broker file for the serviceCode.
 			do
 			{
-				//read service file codes for serviceCode
 				String code = serviceFile.next();
 				
 				if(code.equals(serviceCode))
 				{
 					utilityModule = serviceFile.nextLine().substring(1);
 					foundFlag = true;
+					break;
 				}
 				
+				serviceFile.nextLine();
 			}while(foundFlag==false || serviceFile.hasNext()==false);
 			
+			//If we find the code, we call the module and pass in the arguments.
 			if(foundFlag)
 			{
 				String serviceArgs = in.nextLine();
@@ -75,11 +78,14 @@ public class ServiceBroker {
 					BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 						
 					String curr = "";
-					do
+					while(curr != null)
 					{
 						curr = moduleOutput.readLine();
-						returnData += curr;
-					}while(curr != null);
+						if(curr!=null)
+						{
+							returnData += curr;
+						}
+					}
 					
 					returnCode = 0;
 				} 
@@ -89,6 +95,7 @@ public class ServiceBroker {
 					returnCode = 5;
 				}
 			}
+			//If we don't find the code, create an error message.
 			else
 			{
 				returnData = parseInstruction("MESSAGE,408");
@@ -97,6 +104,7 @@ public class ServiceBroker {
 			
 			serviceFile.close();
 		}
+		//If something fails, create an error message.
 		catch(Exception e)
 		{
 			returnData = parseInstruction("MESSAGE,401");
