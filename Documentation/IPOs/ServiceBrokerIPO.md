@@ -10,6 +10,7 @@ Function: Calls the translator, message, and tax calculator modules based upon t
 
 Input: 
 * Instruction - formatted as "OPCODE,args"
+
 Output: 
 * ReturnCode and ReturnData - formatted as "ReturnCode,ReturnData"
 
