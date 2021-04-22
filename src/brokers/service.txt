@@ -1,3 +1,3 @@
-TRANSLATE,
-TAX,
-MESSAGE,
+TRANSLATE,modules/test.jar
+TAX,modules/test.jar
+MESSAGE,modules/test.jar
