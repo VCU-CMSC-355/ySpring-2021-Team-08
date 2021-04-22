@@ -13,7 +13,7 @@ import java.io.*;
  * Input: 
  * 		Arguments - Instruction as "OPCODE,args"
  * Output: 
- * 		Return - "ReturnCode,ReturnData"
+ * 		Return - ReturnCode and ReturnData as "ReturnCode,ReturnData"
  * ------------------------------------
  * Author: Haley Currence
  * Version Date: 4/21/2021 CMSC 355 - Spring 2021
@@ -92,6 +92,7 @@ public class ServiceBroker {
 					
 					returnCode = 0;
 				} 
+				//File-Not-Found/Command-Not-Recognized error
 				catch (IOException e)
 				{
 					returnData = e.getMessage();
