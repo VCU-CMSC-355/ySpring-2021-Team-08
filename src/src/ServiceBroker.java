@@ -1,6 +1,24 @@
 import java.util.*;
 import java.io.*;
 
+/* 
+ * Module: Service Broker
+ * Component: Orchestration Services
+ * ************************************
+ * Function:
+ *   Calls the translator, message, and tax calculator modules 
+ *   based upon the entered-in instruction.
+ *   
+ * ------------------------------------
+ * Input: 
+ * 		Arguments - Instruction as "OPCODE,args"
+ * Output: 
+ * 		Return - "ReturnCode,ReturnData"
+ * ------------------------------------
+ * Author: Haley Currence
+ * Version Date: 4/21/2021 CMSC 355 - Spring 2021
+ */
+
 public class ServiceBroker {
 	
 	protected static String brokerFileLocation = "brokers/service.txt";
@@ -10,9 +28,9 @@ public class ServiceBroker {
 		System.out.println(parseInstruction("TRANSLATE,args"));
 	}
 	
-	public static String parseInstruction(String input)
+	public static String parseInstruction(String instruction)
 	{
-		Scanner in = new Scanner(input);
+		Scanner in = new Scanner(instruction);
 		in.useDelimiter(",");
 		
 		String serviceCode = in.next();
