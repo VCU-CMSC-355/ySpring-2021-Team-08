@@ -7,5 +7,3 @@ Please document here
 | brokers | Contains the broker files. (Ex.: service.txt) |
 | modules | Where the tax calculator, message, and translator modules are stored (as .jar files). |
 | src | Contains the original .java files and junit tests. |
-| | |
-| | |
