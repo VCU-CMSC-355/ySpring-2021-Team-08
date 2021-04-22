@@ -8,10 +8,10 @@
 | Instruction | Calls the translator, message, and tax calculator modules based upon the entered-in instruction. | ReturnCode |
 | | | ReturnData |
 
- * Input: 
- * 		Arguments - Instruction as "OPCODE,args"
- * Output: 
- * 		Return - ReturnCode and ReturnData as "ReturnCode,ReturnData"
- * ------------------------------------
- * Author: Haley Currence
- * Version Date: 4/21/2021 CMSC 355 - Spring 2021
+ Input: 
+ 		Instruction - formatted as "OPCODE,args"
+ Output: 
+ 		ReturnCode and ReturnData - formatted as "ReturnCode,ReturnData"
+
+ Author: Haley Currence
+ Version Date: 4/21/2021 CMSC 355 - Spring 2021
