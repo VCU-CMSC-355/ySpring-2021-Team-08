@@ -1,7 +1,6 @@
 # Source Code Folder
 To be structured as needed by project team.
 
-Please document here
 | Subdirectory Name | Description |
 |---|---|
 | brokers | Contains the broker files. (Ex.: service.txt) |
