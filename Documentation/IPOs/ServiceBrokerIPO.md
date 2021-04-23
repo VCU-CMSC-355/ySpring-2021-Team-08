@@ -18,5 +18,14 @@ Author: Haley Currence
 
 Version Date: 4/21/2021 CMSC 355 - Spring 2021
 
+Notes:
+* Accepted Opcodes:
+* TRANSLATE
+* TAX
+* MESSAGE
+
 Pseudocode:
-1. Write Pseudocode.
+1. Parse the opcode from the instruction. 
+2. If the opcode does not exist in the service file, return a message with a 401 error (Opcode Not Found).
+3. If the opcode does exist in the service file,
+4. 
