@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 import java.io.*;
 /******************************
@@ -35,8 +36,10 @@ public class Translator {
      * @return A String representing the correctly translated word if no exceptions are thrown, or the
      * corresponding error message number if an exception is thrown.
      */
-    public String translate() {
-        File file = new File(this.language.toLowerCase() + ".txt");
+    public String translate(){
+        String filePath = new File("").getAbsolutePath();
+        filePath = filePath.concat("\\" + this.language.toLowerCase() + ".txt");
+        File file = new File(filePath);
         boolean wordFound = false;
         String[] word = new String[0];
 
@@ -53,8 +56,12 @@ public class Translator {
             } else {
                 return "813";
             }
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException E){
             return "805";
         }
+    }
+    public static void main(String[] args){
+        Translator t = new Translator("cat,spanish");
+        System.out.println(t.translate());
     }
 }
