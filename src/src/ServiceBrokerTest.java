@@ -21,8 +21,8 @@ public class ServiceBrokerTest {
 	
 	@Test
 	public void test1() {
-		String input = "TRANSLATE,GER,Dog";
-		String expected = "0,GER Dog";
+		String input = "TRANSLATE,cat,spanish";
+		String expected = "0,gato";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
