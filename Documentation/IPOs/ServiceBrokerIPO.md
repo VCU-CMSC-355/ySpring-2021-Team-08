@@ -26,7 +26,7 @@ Notes:
   * TAX
   * MESSAGE
 
-Psuedocode:
+Pseudocode:
 1. Parse the opcode from the instruction. 
 2. Search for the opcode in the service file.
 3. If the opcode does not exist in the service file, return a message with a 401 error (Opcode Not Found). Set the return code to 4.
