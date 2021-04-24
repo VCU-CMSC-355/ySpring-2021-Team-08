@@ -31,15 +31,9 @@ Pseudocode:
 4. If the opcode does exist in the service file:
    4. Parse the arguments from the instruction. 
    4. Call the module associated with the opcode and pass in the instruction's arguments as arguments.
-     4. If that module could not be called, return a message with a 408 error (Module Not Found). Set the return code to 4.
+   4. If that module could not be called, return a message with a 408 error (Module Not Found). Set the return code to 4.
    4. Store that modules return data. Set the return code to 0.
 5. Return the return code and the return data.
-
-1. Item 1
-1. Item 2
-1. Item 3
-   1. Item 3a
-   1. Item 3b
 
 Haley's Notes:
 * Need to check if arguments are null.
