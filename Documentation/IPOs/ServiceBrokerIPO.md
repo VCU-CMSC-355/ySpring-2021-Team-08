@@ -34,7 +34,7 @@ Pseudocode:
    4. Call the module associated with the opcode and pass in the instruction's arguments as arguments.
 
 
-     6. If that module could not be called, return a message with a 408 error (Module Not Found). Set the return code to 4.
+      6. If that module could not be called, return a message with a 408 error (Module Not Found). Set the return code to 4.
 
 
    8. Store that modules return data. Set the return code to 0.
