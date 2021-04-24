@@ -18,6 +18,8 @@ Author: Haley Currence
 
 Version Date: 4/21/2021 CMSC 355 - Spring 2021
 
+---
+
 Notes:
 * Accepted Opcodes:
   * TRANSLATE
@@ -41,6 +43,8 @@ Pseudocode:
 
 
 5. Return the return code and the return data.
+
+---
 
 Haley's Notes:
 * Need to check if arguments are null.
