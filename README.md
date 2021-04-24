@@ -5,7 +5,7 @@ Open Source software should not just be a repository of code.  There are a numbe
 follow in your foot steps.  It'll also allow the Linux Foundation OMP Mentorship program to keep track of your project and get
 a better understanding of the problems you encountered during the developmemnt of this project.
 
-_*To preserve the integrity of the Master branch, our group has elected to push each of our individually-coded modules to separate version branches named after the author. During integration testing, branches will be integrated one-by-one into the 'integrationTesting' branch. Once integration testing is complete, the fully-integrated and working result will be pushed to master.*_
+_*To preserve the integrity of the Master branch, our group has elected to push each of our individually-coded modules to separate version branches named after the author. During integration testing, branches will be integrated one-by-one into the '''integrationTesting''' branch. Once integration testing is complete, the fully-integrated and working result will be pushed to master.*_
 
 | Folder | Description |
 |---|---|
