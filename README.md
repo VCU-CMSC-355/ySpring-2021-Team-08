@@ -5,9 +5,10 @@ _*To preserve the integrity of the Master branch, our group has elected to push 
 
 Description TBA
 
+## Project Organization
 | Folder | Description |
 |---|---|
-| Documentation |  all documentation the project team has created to describe the architecture, design, installation and configuratin of the peoject |
+| Documentation |  All documentation the project team has created to describe the architecture, design, installation and configuratin of the peoject |
 | Notes and Research | Relavent information useful to understand the tools and techniques used in the project |
 | Status Reports | Project management documentation - weekly reports, milestones, etc. |
 | src | Source code - create as many subdirectories as needed |
