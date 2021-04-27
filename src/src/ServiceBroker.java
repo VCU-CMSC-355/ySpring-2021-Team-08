@@ -27,7 +27,8 @@ public class ServiceBroker {
 	{
 		//for(String arg : args)
 		{
-			System.out.println(parseInstruction("TRANSLATE,GER,Dog"));
+
+			System.out.println(parseInstruction("TAX,args"));
 		}
 	}
 	
