@@ -18,14 +18,33 @@ Author: Haley Currence
 
 Version Date: 4/21/2021 CMSC 355 - Spring 2021
 
+---
+
 Notes:
 * Accepted Opcodes:
-* TRANSLATE
-* TAX
-* MESSAGE
+  * TRANSLATE
+  * TAX
+  * MESSAGE
 
 Pseudocode:
 1. Parse the opcode from the instruction. 
-2. If the opcode does not exist in the service file, return a message with a 401 error (Opcode Not Found).
-3. If the opcode does exist in the service file,
-4. 
+2. Search for the opcode in the service file.
+3. If the opcode does not exist in the service file, return a message with a 401 error (Opcode Not Found). Set the return code to 4.
+4. If the opcode does exist in the service file:
+
+   1. Parse the arguments from the instruction. 
+   2. Call the module associated with the opcode and pass in the instruction's arguments as arguments.
+
+
+      1. If that module could not be called, return a message with a 408 error (Module Not Found). Set the return code to 4.
+
+
+   3. Store that modules return data. Set the return code to 0.
+
+
+5. Return the return code and the return data.
+
+---
+
+Haley's Notes:
+* Need to check if arguments are null.
