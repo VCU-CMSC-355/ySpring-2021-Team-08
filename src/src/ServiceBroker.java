@@ -27,7 +27,7 @@ public class ServiceBroker {
 	{
 		for(String arg : args)
 		{
-			parseInstruction("TAX,args");
+			parseInstruction(arg);
 		}
 	}
 	

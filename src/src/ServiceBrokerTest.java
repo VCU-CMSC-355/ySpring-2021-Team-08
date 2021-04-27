@@ -4,7 +4,6 @@ import org.junit.Test;
 
 /*
  * Harness for ServiceBrokerTesting
- * Testing Stub: test.jar
  */
 public class ServiceBrokerTest {
 
@@ -18,6 +17,31 @@ public class ServiceBrokerTest {
 		
 		assertEquals(expected, output);	
 	}*/
+	
+	@Test
+	public void noArgsTest1() {
+		String input = "TRANSLATE";
+		String expected = "0,gato";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void noArgsTest2() {
+		String input = "TRANSLATE,,";
+		String expected = "0,gato";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void noArgsTest3() {
+		String input = "TRANSLATE, , ";
+		String expected = "0,gato";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
 	
 	@Test
 	public void translateTest1() {
