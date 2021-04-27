@@ -25,9 +25,9 @@ public class ServiceBroker {
 	
 	public static void main(String[] args)
 	{
-		for(String arg : args)
+		//for(String arg : args)
 		{
-			parseInstruction(arg);
+			System.out.println(parseInstruction("TRANSLATE,GER,Dog"));
 		}
 	}
 	
@@ -76,7 +76,7 @@ public class ServiceBroker {
 					
 					String utilityPath = new File(utilityModule).getAbsolutePath();
 					
-					utilityModule = "java -jar " + utilityPath + " " + serviceArgs;
+					utilityModule = "java -jar \"" + utilityPath + "\" " + serviceArgs;
 					Process p = Runtime.getRuntime().exec(utilityModule);
 					BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 						
@@ -90,6 +90,7 @@ public class ServiceBroker {
 						}
 					}
 					
+					p.destroy();
 					returnCode = 0;
 				} 
 				//File-Not-Found/Command-Not-Recognized error
