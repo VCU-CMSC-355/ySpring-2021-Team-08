@@ -38,6 +38,9 @@ public class Translator {
      */
     public String translate(){
         String filePath = new File("").getAbsolutePath();
+        String relativePath = new File("").getPath();
+        System.out.println(filePath);
+        System.out.println(relativePath);
         filePath = filePath.concat("\\" + this.language.toLowerCase() + ".txt");
         File file = new File(filePath);
         boolean wordFound = false;
@@ -54,14 +57,10 @@ public class Translator {
             if (wordFound) {
                 return word[1];
             } else {
-                return "813";
+                return ServiceBroker.parseInstruction("MESSAGE,813");
             }
         } catch (FileNotFoundException E){
-            return "805";
+            return ServiceBroker.parseInstruction("MESSAGE,805");
         }
-    }
-    public static void main(String[] args){
-        Translator t = new Translator("cat,spanish");
-        System.out.println(t.translate());
     }
 }
