@@ -28,7 +28,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void translateNoArgsTest1() {
 		String input = "TRANSLATE";
-		String expected = "4, Arguements Not Found";
+		String expected = "4, Arguments Not Found";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
