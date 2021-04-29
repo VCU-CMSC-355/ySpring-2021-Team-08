@@ -26,7 +26,6 @@ public class ServiceBroker {
 	{
 		for(String arg : args)
 		{
-
 			parseInstruction(arg);
 		}
 	}
