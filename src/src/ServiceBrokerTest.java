@@ -2,9 +2,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/*
+/**
  * Harness for ServiceBrokerTesting
  * Testing Stub: test.jar
+ * 
+ * @author Haley Currence
+ * @version 4/29/2021 CMSC 311 - Spring 2021
  */
 public class ServiceBrokerTest {
 
@@ -19,15 +22,21 @@ public class ServiceBrokerTest {
 		assertEquals(expected, output);	
 	}*/
 	
+	/**
+	 * This test tests the Translate opcode.
+	 */
 	@Test
 	public void test1() {
 		String input = "TRANSLATE,cat,spanish";
-		String expected = "0,gato";
+		String expected = "0,cat spanish";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
 	}
 	
+	/**
+	 * This test tests the Tax opcode.
+	 */
 	@Test
 	public void test2() {
 		String input = "TAX,2020,Single,10000";
@@ -37,6 +46,10 @@ public class ServiceBrokerTest {
 		assertEquals(expected, output);	
 	}
 	
+	
+	/**
+	 * This test tests the Message opcode.
+	 */
 	@Test
 	public void test3() {
 		String input = "MESSAGE,404,language";
