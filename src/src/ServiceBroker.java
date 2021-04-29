@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-/* 
+/** 
  * Module: Service Broker
  * Component: Orchestration Services
  * ************************************
@@ -11,31 +11,33 @@ import java.io.*;
  *   
  * ------------------------------------
  * Input: 
- * 		Arguments - Instruction as "OPCODE,args"
+ * 		Instruction as "OPCODE,args"
  * Output: 
- * 		Return - ReturnCode and ReturnData as "ReturnCode,ReturnData"
+ * 		ReturnCode and ReturnData as "ReturnCode,ReturnData"
  * ------------------------------------
- * Author: Haley Currence
- * Version Date: 4/21/2021 CMSC 355 - Spring 2021
+ * @author Haley Currence
+ * @version 4/27/2021 CMSC 355 - Spring 2021
  */
-
 public class ServiceBroker {
 	
 	protected static String brokerFileLocation = "brokers/service.txt";
 	
 	public static void main(String[] args)
 	{
-		//for(String arg : args)
+		for(String arg : args)
 		{
-<<<<<<< HEAD
 			parseInstruction(arg);
-=======
-
-			System.out.println(parseInstruction("TAX,args"));
->>>>>>> parent of 0fae2b0 (Update JavaDoc for ServiceBroker and ServiceBrokerTest)
 		}
 	}
 	
+	/**
+	 * The parseInstruction method takes in an instruction, calls the 
+	 * appropriate module according to the instruction, and returns the 
+	 * output of that module with the appropriate return code.
+	 * 
+	 * @param instruction - String
+	 * @return returnCode and returnData - a combined String
+	 */
 	public static String parseInstruction(String instruction)
 	{
 		Scanner in = new Scanner(instruction);
@@ -101,14 +103,15 @@ public class ServiceBroker {
 				//File-Not-Found/Command-Not-Recognized error
 				catch (IOException e)
 				{
-					returnData = e.getMessage();
-					returnCode = 5;
+					returnData = parseInstruction("MESSAGE,402");
+					returnData += "; " + e.getMessage();
+					returnCode = 4;
 				}
 			}
 			//If we don't find the code, create an error message.
 			else
 			{
-				returnData = parseInstruction("MESSAGE,408");
+				returnData = parseInstruction("MESSAGE,403");
 				returnCode = 4;
 			}
 			
@@ -118,6 +121,7 @@ public class ServiceBroker {
 		catch(Exception e)
 		{
 			returnData = parseInstruction("MESSAGE,401");
+			returnData += "; " + e.getMessage();
 			returnCode = 4;
 		}
 		
