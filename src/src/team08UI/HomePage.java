@@ -7,6 +7,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.wb.swt.SWTResourceManager;
+
 import org.eclipse.swt.widgets.Label;
 
 public class HomePage {
@@ -41,10 +42,15 @@ public class HomePage {
 		}
 	}
 
+
+
 	/**
 	 * Create contents of the window.
 	 */
 	protected void createContents() {
+
+		
+		
 		shell = new Shell();
 		shell.setSize(500, 350);
 		shell.setText("SWT Application");
@@ -104,6 +110,9 @@ public class HomePage {
 		lblHome.setFont(SWTResourceManager.getFont("Calibri", 16, SWT.NORMAL));
 		lblHome.setBounds(10, 10, 99, 52);
 		lblHome.setText("Home");
+		
+
+
 
 	}
 }

@@ -112,10 +112,10 @@ public class SettingsPage {
 		text = new Text(shell, SWT.BORDER);
 		text.setBounds(30, 144, 125, 21);
 		
-		text_1 = new Text(shell, SWT.BORDER);
+		text_1 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
 		text_1.setBounds(161, 144, 125, 21);
 		
-		text_2 = new Text(shell, SWT.BORDER);
+		text_2 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
 		text_2.setBounds(292, 144, 125, 21);
 		
 		Label lblNewPassword = new Label(shell, SWT.NONE);
@@ -126,13 +126,27 @@ public class SettingsPage {
 		lblConfirmNewPassword.setBounds(292, 123, 124, 15);
 		lblConfirmNewPassword.setText("Confirm New Password");
 		
+		Label lblPasswordChanged = new Label(shell, SWT.NONE);
+		lblPasswordChanged.setBounds(30, 202, 256, 15);
+		lblPasswordChanged.setVisible(false);
+		
 		Button btnChangePassword = new Button(shell, SWT.NONE);
 		btnChangePassword.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Label lblPasswordChanged = new Label(shell, SWT.NONE);
-				lblPasswordChanged.setBounds(30, 202, 106, 15);
+				String t1 = text_1.getText();
+				String t2 = text_2.getText();
+				
+				if(t1.equals(t2)) {
+				
 				lblPasswordChanged.setText("Password Changed!");
+				lblPasswordChanged.setVisible(true);
+				}
+				else {
+				lblPasswordChanged.setText("Passwords don't match");
+				lblPasswordChanged.setVisible(true);
+				}
+					
 			}
 		});
 		btnChangePassword.setBounds(30, 171, 106, 25);

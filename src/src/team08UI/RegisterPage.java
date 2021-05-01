@@ -72,26 +72,39 @@ public class RegisterPage {
 		lblPassword.setBounds(142, 90, 55, 15);
 		lblPassword.setText("Password");
 		
-		text_1 = new Text(shell, SWT.BORDER);
-		text_1.setToolTipText("Username");
+		text_1 = new Text(shell, SWT.PASSWORD |SWT.BORDER);
 		text_1.setBounds(142, 111, 150, 21);
+		
 		
 		Label lblConfirmPassword = new Label(shell, SWT.NONE);
 		lblConfirmPassword.setBounds(142, 138, 150, 15);
 		lblConfirmPassword.setText("Confirm Password");
 		
-		text_2 = new Text(shell, SWT.BORDER);
-		text_2.setToolTipText("Username");
+		text_2 = new Text(shell, SWT.PASSWORD|SWT.BORDER);
 		text_2.setBounds(142, 159, 150, 21);
+		
+		Label conPass = new Label(shell, SWT.NONE);
+		conPass.setBounds(138, 215, 158, 15);
+		conPass.setVisible(false);
+		conPass.setText("Make sure passwords match!");
 		
 		Button btnRegisterAccount = new Button(shell, SWT.NONE);
 		btnRegisterAccount.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
+				String t1 = text_1.getText();
+				String t2 = text_2.getText();
+				
+				if(t1.equals(t2)) {
 				shell.dispose();
 				HomePage hP = new HomePage();
 				hP.open();
+				}
+				else
+					conPass.setVisible(true);
+				
 			}
 		});
+			
 		btnRegisterAccount.setBounds(161, 184, 111, 25);
 		btnRegisterAccount.setText("Register Account");
 		
@@ -105,6 +118,7 @@ public class RegisterPage {
 		});
 		btnGoBack.setBounds(349, 226, 75, 25);
 		btnGoBack.setText("Go back");
+		
 
 	}
 }

@@ -73,7 +73,7 @@ public class LoginPage {
 		lblPassword.setBounds(142, 123, 150, 15);
 		lblPassword.setText("Password");
 		
-		text = new Text(shell, SWT.BORDER);
+		text = new Text(shell, SWT.PASSWORD| SWT.BORDER);
 		text.setToolTipText("Username");
 		text.setBounds(142, 144, 150, 21);
 		
