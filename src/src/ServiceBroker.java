@@ -71,15 +71,45 @@ public class ServiceBroker {
 				}
 				
 				serviceFile.nextLine();
-			}while(foundFlag==false || serviceFile.hasNext()==false);
+				System.out.println(serviceFile.hasNext());
+			}while(foundFlag==false && serviceFile.hasNext()==true);
 			
 			//If we find the code, we call the module and pass in the arguments.
 			if(foundFlag)
 			{
-				String serviceArgs = in.nextLine();
+				String serviceArgs = "";
+				
+				if(in.hasNext())
+				{
+					serviceArgs = in.nextLine();
+				}
+				//If no arguments were passed through, return a no-argument error.
+				else
+				{
+					returnData = parseInstruction("MESSAGE,402").substring(2);
+					returnCode = 4;
+					
+					serviceFile.close();
+					in.close();
+					
+					return returnCode + "," + returnData;
+				}
+				
 				try
 				{
 					serviceArgs = serviceArgs.substring(1).replace(',', ' ');
+					
+					//If arguments are empty, return a no-argument error.
+					if(serviceArgs.equals("") || serviceArgs.equals(" ") || serviceArgs.equals("  ") || serviceArgs.equals("   ") || serviceArgs.equals("   "))
+					{
+						returnData = parseInstruction("MESSAGE,402").substring(2);
+						returnCode = 4;
+						
+						serviceFile.close();
+						in.close();
+						
+						return returnCode + "," + returnData;
+					}
 					
 					String utilityPath = new File(utilityModule).getAbsolutePath();
 					
@@ -103,15 +133,15 @@ public class ServiceBroker {
 				//File-Not-Found/Command-Not-Recognized error
 				catch (IOException e)
 				{
-					returnData = parseInstruction("MESSAGE,402");
-					returnData += "; " + e.getMessage();
+					returnData = parseInstruction("MESSAGE,403").substring(2);
+					//returnData += "; " + e.getMessage();
 					returnCode = 4;
 				}
 			}
 			//If we don't find the code, create an error message.
 			else
 			{
-				returnData = parseInstruction("MESSAGE,403");
+				returnData = parseInstruction("MESSAGE,404").substring(2);
 				returnCode = 4;
 			}
 			
@@ -120,8 +150,8 @@ public class ServiceBroker {
 		//If something fails, create an error message.
 		catch(Exception e)
 		{
-			returnData = parseInstruction("MESSAGE,401");
-			returnData += "; " + e.getMessage();
+			returnData = parseInstruction("MESSAGE,401").substring(2);
+			returnData += "; " + e.toString();
 			returnCode = 4;
 		}
 		

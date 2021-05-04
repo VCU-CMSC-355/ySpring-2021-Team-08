@@ -23,33 +23,52 @@ public class ServiceBrokerTest {
 	}*/
 	
 	/*
-	 * These tests test the Translate opcode.
+	 * Service Broker Error Testing
 	 */
 	@Test
-	public void translateNoArgsTest1() {
+	public void notOpcodeTest1() {
+		String input = "NOTCODE,test,test";
+		String expected = "4,404";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void notOpcodeTest2() {
+		String input = "NOTCODE";
+		String expected = "4,404";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void opcodeNoArgsTest1() {
 		String input = "TRANSLATE";
-		String expected = "4, Arguments Not Found";
+		String expected = "4,402";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
 	}
 	@Test
-	public void translateNoArgsTest2() {
+	public void opcodeNoArgsTest2() {
 		String input = "TRANSLATE,,";
-		String expected = "4, Arguments Not Found";
+		String expected = "4,402";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
 	}
 	@Test
-	public void translateNoArgsTest3() {
+	public void opcodeNoArgsTest3() {
 		String input = "TRANSLATE, , ";
-		String expected = "4, Arguments Not Found";
+		String expected = "4,402";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
 	}
 	
+	/*
+	 * These tests test the Translate opcode.
+	 */
 	@Test
 	public void translateTest1() {
 		String input = "TRANSLATE,cat,spanish";
@@ -86,6 +105,38 @@ public class ServiceBrokerTest {
 	public void translateTest5() {
 		String input = "TRANSLATE,cat,english";
 		String expected = "0,cat";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void translateTestMissingArg1() {
+		String input = "TRANSLATE,cat,";
+		String expected = "0, ";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void translateTestMissingArg2() {
+		String input = "TRANSLATE,cat, ";
+		String expected = "0, ";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void translateTestMissingArg3() {
+		String input = "TRANSLATE,,english";
+		String expected = "0, ";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void translateTestMissingArg4() {
+		String input = "TRANSLATE, ,english";
+		String expected = "0, ";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
