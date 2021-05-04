@@ -1,5 +1,4 @@
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 /**
@@ -7,7 +6,7 @@ import org.junit.Test;
  * Testing Stub: test.jar
  * 
  * @author Haley Currence
- * @version 4/29/2021
+ * @version 5/4/2021
  */
 public class ServiceBrokerTest {
 
@@ -22,9 +21,8 @@ public class ServiceBrokerTest {
 		assertEquals(expected, output);	
 	}*/
 	
-	/*
-	 * Service Broker Error Testing
-	 */
+	
+	//Tests for if the opcode called does not exist.
 	@Test
 	public void notOpcodeTest1() {
 		String input = "NOTCODE,test,test";
@@ -41,6 +39,8 @@ public class ServiceBrokerTest {
 		
 		assertEquals(expected, output);	
 	}
+	
+	//Tests when no arguments are passed through.
 	@Test
 	public void opcodeNoArgsTest1() {
 		String input = "TRANSLATE";
@@ -66,8 +66,36 @@ public class ServiceBrokerTest {
 		assertEquals(expected, output);	
 	}
 	
+	//Test for identifying if an error code was received from a module.
+	
+	
+	
 	/*
-	 * These tests test the Translate opcode.
+	 * This test tests the Tax opcode.
+	 */
+	@Test
+	public void taxTest1() {
+		String input = "TAX,2020,Single,10000";
+		String expected = "0,2020 Single 10000";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	
+	/*
+	 * This test tests the Message opcode.
+	 */
+	@Test
+	public void messageTest1() {
+		String input = "MESSAGE,404,language";
+		String expected = "0,404 language";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	
+	/*
+	 * These tests test the integration of the Translate module.
 	 */
 	@Test
 	public void translateTest1() {
@@ -137,30 +165,6 @@ public class ServiceBrokerTest {
 	public void translateTestMissingArg4() {
 		String input = "TRANSLATE, ,english";
 		String expected = "0, ";
-		String output = ServiceBroker.parseInstruction(input);
-		
-		assertEquals(expected, output);	
-	}
-	
-	/*
-	 * This test tests the Tax opcode.
-	 */
-	@Test
-	public void taxTest1() {
-		String input = "TAX,2020,Single,10000";
-		String expected = "0,2020 Single 10000";
-		String output = ServiceBroker.parseInstruction(input);
-		
-		assertEquals(expected, output);	
-	}
-	
-	/*
-	 * This test tests the Message opcode.
-	 */
-	@Test
-	public void messageTest1() {
-		String input = "MESSAGE,404,language";
-		String expected = "0,404 language";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
