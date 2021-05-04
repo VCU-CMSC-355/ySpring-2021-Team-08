@@ -1,0 +1,4 @@
+401,General Error
+402,No Arguments Found
+403,File Not Found/Command Not Recognized
+404,Opcode Not Found
