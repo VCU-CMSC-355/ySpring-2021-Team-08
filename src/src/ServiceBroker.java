@@ -71,8 +71,7 @@ public class ServiceBroker {
 				}
 				
 				serviceFile.nextLine();
-				System.out.println(serviceFile.hasNext());
-			}while(foundFlag==false && serviceFile.hasNext()==true);
+			}while(foundFlag==false && serviceFile.hasNext());
 			
 			//If we find the code, we call the module and pass in the arguments.
 			if(foundFlag)
