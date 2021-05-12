@@ -140,7 +140,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void translateTestMissingArg1() {
 		String input = "TRANSLATE,cat,";
-		String expected = "0, ";
+		String expected = "0,";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -148,7 +148,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void translateTestMissingArg2() {
 		String input = "TRANSLATE,cat, ";
-		String expected = "0, ";
+		String expected = "0,";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -156,7 +156,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void translateTestMissingArg3() {
 		String input = "TRANSLATE,,english";
-		String expected = "0, ";
+		String expected = "0,";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -164,7 +164,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void translateTestMissingArg4() {
 		String input = "TRANSLATE, ,english";
-		String expected = "0, ";
+		String expected = "0,";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
