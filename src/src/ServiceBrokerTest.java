@@ -10,7 +10,7 @@ import org.junit.Test;
  */
 public class ServiceBrokerTest {
 
-	/* 
+	/* s
 	//Blueprint Test
 	@Test
 	public void test() {
@@ -95,7 +95,7 @@ public class ServiceBrokerTest {
 	 */
 	@Test
 	public void messageTest1() {
-		String input = "MESSAGE,404,language";
+		String input = "MESSAGE,404";
 		String expected = "0,404 language";
 		String output = ServiceBroker.parseInstruction(input);
 		

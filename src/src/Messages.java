@@ -16,12 +16,13 @@ import java.io.*;
  ******************************
  */
 
-public class Messages implements ServiceBroker{ 
-   protected int MsgNumber;
+public class Messages{ 
    
-   MsgNumber = ServiceBroker.returnData; 
-   returnMessage(MsgNumber);   
-    
+	public static void main(String[] args)
+	{
+		returnMessage(Integer.parseInt(args[0]));   
+	}
+   
    static void returnMessage(int MsgNumber){ 
       try {
          Scanner input = new Scanner(new File("MessageList.txt"));
