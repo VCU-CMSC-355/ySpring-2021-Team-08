@@ -96,7 +96,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void messageTest1() {
 		String input = "MESSAGE,404";
-		String expected = "0,404 language";
+		String expected = "0,404";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
