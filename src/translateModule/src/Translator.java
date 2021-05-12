@@ -1,6 +1,8 @@
 import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 import java.io.*;
+import java.util.regex.PatternSyntaxException;
+
 /******************************
  * Translator Class
  ******************************
@@ -16,15 +18,22 @@ public class Translator {
     protected String language;
 
     /**
-     * Takes String input, splits it by comma, and uses first parsed section as word to be translated, and second
-     * parsed section as language to translate.
+     * Takes String input. If input has no comma, or has empty/whitespace parameters on either side of the comma,
+     * makes Translator variables empty strings. Otherwise, splits it by comma and makes first substring "engWord"
+     * and second substring "language".
      *
      * @param input The parameter list being passed to the translate module
      */
     public Translator(String input) {
-        String[] parsedInput = input.split(",");
-        this.engWord = parsedInput[0];
-        this.language = parsedInput[1];
+        String trimmedString = input.trim();
+        String[] parsedString = input.split(",");
+        if(!input.contains(",") || trimmedString.indexOf(",") == 0 || trimmedString.indexOf(",") == trimmedString.length()-1){
+            this.engWord = "";
+            this.language = "";
+        } else{
+            this.engWord = parsedString[0];
+            this.language = parsedString[1];
+        }
     }
 
     /**
@@ -43,6 +52,11 @@ public class Translator {
         boolean wordFound = false;
         String[] word = new String[0];
 
+        if(this.engWord.equals("") && this.language.equals("")){
+            return "If you're seeing this, your string input wasn't in the correct format," +
+                    "most likely because we coded something wrong. Whoops.";
+        }
+
         try {
             Scanner scan = new Scanner(file);
             while (!wordFound && scan.hasNextLine()) {
@@ -54,14 +68,10 @@ public class Translator {
             if (wordFound) {
                 return word[1];
             } else {
-                return "813";
+                return "MESSAGE,813"; //will later be implemented with ServiceBroker module
             }
         } catch (FileNotFoundException E){
-            return "805";
+            return "MESSAGE,805"; //will later be implemented with ServiceBroker module
         }
-    }
-    public static void main(String[] args){
-        Translator t = new Translator("cat,spanish");
-        System.out.println(t.translate());
     }
 }
