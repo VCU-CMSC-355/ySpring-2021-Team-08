@@ -16,12 +16,15 @@ import java.io.*;
  ******************************
  */
 
-public class Messages implements ServiceBroker{ 
-   protected int MsgNumber;
+public class Messages{ 
    
-   MsgNumber = ServiceBroker.returnData; 
-   returnMessage(MsgNumber);   
-    
+   public static void main(String[] args){
+      //args[0] = "MSG_NUMBER" 
+      //args[1] = "Language for you to convert from text file"  
+      int MsgNumber = Integer.parseInt(args[0]);
+      returnMessage(MsgNumber);
+   }
+   
    static void returnMessage(int MsgNumber){ 
       try {
          Scanner input = new Scanner(new File("MessageList.txt"));
@@ -29,9 +32,8 @@ public class Messages implements ServiceBroker{
       
          while(input.hasNextLine()){
             tmp = input.nextLine();
-            if(tmp.substring(0,3).equals(String.valueOf(MsgNumber)) == true){
+            if(tmp.substring(0,3).equals(String.valueOf(MsgNumber)) == true)
                errorMsg = tmp.substring(4); 
-            }
          }   
       
          input.close();
@@ -40,7 +42,7 @@ public class Messages implements ServiceBroker{
       } catch (FileNotFoundException e) { 
          System.out.println("FileNotFoundException");
       }
-   }
+   } 
    
 }//end class
 
