@@ -13,7 +13,7 @@ import org.eclipse.swt.events.SelectionEvent;
 public class Translator {
 
 	protected Shell shell;
-	private Text text;
+	private Text userInput;
 
 	/**
 	 * Launch the application.
@@ -67,30 +67,29 @@ public class Translator {
 		lblUserChosenLanguage.setBounds(245, 42, 149, 19);
 		lblUserChosenLanguage.setText("User Chosen Language");
 		
-		text = new Text(shell, SWT.BORDER);
-		text.setBounds(20, 67, 150, 150);
+		Label output = new Label(shell, SWT.NONE);
+		output.setBounds(317, 108, 55, 15);
 		
-		Label lblTesting = new Label(shell, SWT.NONE);
-		lblTesting.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-		lblTesting.setVisible(false);
-		lblTesting.setBounds(288, 67, 54, 26);
-		lblTesting.setText("Testing");
+		userInput = new Text(shell, SWT.BORDER);
+		userInput.setBounds(20, 67, 150, 150);
 		
-		Button btnNewButton = new Button(shell, SWT.NONE);
-		btnNewButton.setFont(SWTResourceManager.getFont("Candara", 8, SWT.NORMAL));
-		btnNewButton.addSelectionListener(new SelectionAdapter() {
+		Button btnTranslate = new Button(shell, SWT.NONE);
+		btnTranslate.setFont(SWTResourceManager.getFont("Candara", 8, SWT.NORMAL));
+		btnTranslate.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				lblTesting.setVisible(true);
+				//Output
+				output.setText(userInput.getText());
 			}
 		});
-		btnNewButton.setBounds(183, 94, 67, 26);
-		btnNewButton.setText("Translate");
+		btnTranslate.setBounds(183, 94, 67, 26);
+		btnTranslate.setText("Translate");
 		
 		Button btnClear = new Button(shell, SWT.NONE);
 		btnClear.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
 		btnClear.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				lblTesting.setVisible(false);
+				userInput.setText("");
+				output.setText("");
 			}
 		});
 		btnClear.setBounds(190, 125, 54, 25);
@@ -107,7 +106,8 @@ public class Translator {
 		btnHome.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
 		btnHome.setBounds(349, 226, 75, 25);
 		btnHome.setText("Home");
+		
+
 
 	}
-
 }
