@@ -71,12 +71,20 @@ public class ServiceBrokerTest {
 	
 	
 	/*
-	 * This test tests the Tax opcode.
+	 * These tests test the integration of the taxCalculator module.
 	 */
 	@Test
 	public void taxTest1() {
-		String input = "TAX,2020,Single,10000";
-		String expected = "0,2020 Single 10000";
+		String input = "TAX,2020,10000,S";
+		String expected = "0,1002.5";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void taxTest2() {
+		String input = "TAX,2020,9875,S";
+		String expected = "0,987.5";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
