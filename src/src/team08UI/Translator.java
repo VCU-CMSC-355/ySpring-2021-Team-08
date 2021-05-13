@@ -78,7 +78,8 @@ public class Translator {
 		btnTranslate.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				//Output
-				output.setText(userInput.getText());
+				String test = HomePage.getData("TRANSLATE,cat,german");
+				output.setText(test);
 			}
 		});
 		btnTranslate.setBounds(183, 94, 67, 26);

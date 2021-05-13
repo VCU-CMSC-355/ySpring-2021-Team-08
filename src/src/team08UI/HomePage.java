@@ -3,10 +3,17 @@ package team08UI;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.wb.swt.SWTResourceManager;
+
 
 import org.eclipse.swt.widgets.Label;
 
@@ -114,5 +121,26 @@ public class HomePage {
 
 
 
+	}
+	
+	static String getData(String command) {
+		String out = "";
+		
+		try {
+		String utilityPath = new File("modules/serviceBroker.jar").getAbsolutePath();
+		
+		String utilityModule = "java -jar \"" + utilityPath + "\" " + command;
+		
+		Process p = Runtime.getRuntime().exec(utilityModule);
+		BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		
+		out = "test" + moduleOutput.readLine();
+		
+		}
+		catch(IOException e)
+		{
+			System.out.println(e);
+		}
+		return out;
 	}
 }
