@@ -1,7 +1,7 @@
-import java.util.Locale;
+//import java.util.Locale;
 import java.util.*;
 import java.io.*;
-import java.util.regex.PatternSyntaxException;
+//import java.util.regex.PatternSyntaxException;
 
 /******************************
  * Translator Class
@@ -26,8 +26,8 @@ public class Translator {
      */
     public Translator(String input) {
         String trimmedString = input.trim();
-        String[] parsedString = input.split(",");
-        if(!input.contains(",") || trimmedString.indexOf(",") == 0 || trimmedString.indexOf(",") == trimmedString.length()-1){
+        String[] parsedString = input.split(" ");
+        if(!input.contains(" ") || trimmedString.indexOf(" ") == 0 || trimmedString.indexOf(" ") == trimmedString.length()-1){
             this.engWord = "";
             this.language = "";
         } else{
@@ -46,7 +46,7 @@ public class Translator {
      * corresponding error message number if an exception is thrown.
      */
     public String translate(){
-        String filePath = new File("").getAbsolutePath();
+        String filePath = new File("brokers").getAbsolutePath();
         filePath = filePath.concat("\\" + this.language.toLowerCase() + ".txt");
         File file = new File(filePath);
         boolean wordFound = false;
@@ -75,6 +75,11 @@ public class Translator {
         }
     }
     public static void main(String[] args){
-        Translator t = new Translator("cat,klingon");
+    	if(args[0]!=null && args[1]!=null)
+    	{
+	    	String temp = args[0] + " " + args[1];
+	        Translator t = new Translator(temp);
+	        System.out.println(t.translate());
+    	}
     }
 }
