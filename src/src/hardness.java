@@ -10,7 +10,7 @@ public class hardness {
             System.out.println(s);
         }*/
 		
-		String input = "MESSAGE,401";
+		String input = "MESSAGE,402";
 		//String expected = "0,General Error";
 		String output = ServiceBroker.parseInstruction(input);
 		System.out.println(output);
