@@ -26,7 +26,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void notOpcodeTest1() {
 		String input = "NOTCODE,test,test";
-		String expected = "4,404";
+		String expected = "4,Opcode Not Found";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -34,7 +34,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void notOpcodeTest2() {
 		String input = "NOTCODE";
-		String expected = "4,404";
+		String expected = "4,Opcode Not Found";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -44,7 +44,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void opcodeNoArgsTest1() {
 		String input = "TRANSLATE";
-		String expected = "4,402";
+		String expected = "4,No Arguments Found";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -52,7 +52,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void opcodeNoArgsTest2() {
 		String input = "TRANSLATE,,";
-		String expected = "4,402";
+		String expected = "4,No Arguments Found";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -60,7 +60,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void opcodeNoArgsTest3() {
 		String input = "TRANSLATE, , ";
-		String expected = "4,402";
+		String expected = "4,No Arguments Found";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -91,12 +91,28 @@ public class ServiceBrokerTest {
 	}
 	
 	/*
-	 * This test tests the Message opcode.
+	 * These tests test the integration of the Message module.
 	 */
 	@Test
 	public void messageTest1() {
 		String input = "MESSAGE,404";
-		String expected = "0,404";
+		String expected = "4,Opcode Not Found";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void messageTest2() {
+		String input = "MESSAGE,813";
+		String expected = "0,Word Not Found";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void messageTest3() {
+		String input = "MESSAGE,401";
+		String expected = "4,General Error";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -133,14 +149,6 @@ public class ServiceBrokerTest {
 	public void translateTest4() {
 		String input = "TRANSLATE,cat,klingon";
 		String expected = "0,mangHom";
-		String output = ServiceBroker.parseInstruction(input);
-		
-		assertEquals(expected, output);	
-	}
-	@Test
-	public void translateTest5() {
-		String input = "TRANSLATE,cat,english";
-		String expected = "0,cat";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
