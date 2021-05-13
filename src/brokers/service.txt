@@ -1,0 +1,3 @@
+TRANSLATE,modules/translate.jar
+TAX,modules/taxCalculator.jar
+MESSAGE,modules/messages.jar
