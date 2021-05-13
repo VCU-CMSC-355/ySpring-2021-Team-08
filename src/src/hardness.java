@@ -1,28 +1,30 @@
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 public class hardness {
 	public static void main(String[] args) throws IOException {
-        /*ProcessBuilder in = new ProcessBuilder("java", "-jar", "C:\\Users\\Joshua\\Documents\\GitHub\\Spring-2021-Team-08\\src\\modules\\messages.jar", "401");
-        BufferedReader ix = new BufferedReader(new InputStreamReader(in.start().getInputStream()));
-        String s = null;
-        while((s = ix.readLine()) != null) { 
-            System.out.println(s);
-        }*/
+
+		String utilityPath = new File("modules\\serviceBroker.jar").getAbsolutePath();
 		
-		String input = "MESSAGE,402";
-		//String expected = "0,General Error";
-		String output = ServiceBroker.parseInstruction(input);
-		System.out.println(output);
-		
-			String input1 = "TRANSLATE,cat,german";
-			//String expected1 = "0,gato";
-			String output1 = ServiceBroker.parseInstruction(input1);
-			System.out.println(output1);
+		utilityPath = "java -jar \"" + utilityPath + "\" TAX,2020,10000,S";
+		Process p = Runtime.getRuntime().exec(utilityPath);
+		BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			
-			String input2 = "TAX,2020,40002,S";
-			//String expected = "0,1002.5";
-			String output2 = ServiceBroker.parseInstruction(input2);
-			System.out.println(output2); 
+		String output = "";
+		String curr = "";
+		while(curr != null)
+		{
+			curr = moduleOutput.readLine();
+			if(curr!=null)
+			{
+				output += curr;
+			}
+		}
+		
+		System.out.println(output);
+		p.destroy();
     }
 }

@@ -89,6 +89,30 @@ public class ServiceBrokerTest {
 		
 		assertEquals(expected, output);	
 	}
+	@Test
+	public void taxTestMissingArg1() {
+		String input = "TAX,,9875,S";
+		String expected = "4,No Arguments Found";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void taxTestMissingArg2() {
+		String input = "TAX,2020,,S";
+		String expected = "4,No Arguments Found";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void taxTestMissingArg3() {
+		String input = "TAX,2020,9875,";
+		String expected = "4,No Arguments Found";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
 	
 	/*
 	 * These tests test the integration of the Message module.
@@ -113,6 +137,14 @@ public class ServiceBrokerTest {
 	public void messageTest3() {
 		String input = "MESSAGE,401";
 		String expected = "0,General Error";
+		String output = ServiceBroker.parseInstruction(input);
+		
+		assertEquals(expected, output);	
+	}
+	@Test
+	public void messageTestMissingArg1() {
+		String input = "MESSAGE,";
+		String expected = "4,No Arguments Found";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
