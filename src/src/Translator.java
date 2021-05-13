@@ -1,5 +1,8 @@
-import java.util.Scanner;
+import java.util.Locale;
+import java.util.*;
 import java.io.*;
+import java.util.regex.PatternSyntaxException;
+
 /******************************
  * Translator Class
  ******************************
@@ -13,17 +16,24 @@ import java.io.*;
 public class Translator {
     protected String engWord;
     protected String language;
-    
+
     /**
-     * Takes String input, splits it by comma, and uses first parsed section as word to be translated, and second
-     * parsed section as language to translate.
+     * Takes String input. If input has no comma, or has empty/whitespace parameters on either side of the comma,
+     * makes Translator variables empty strings. Otherwise, splits it by comma and makes first substring "engWord"
+     * and second substring "language".
      *
      * @param input The parameter list being passed to the translate module
      */
     public Translator(String input) {
-        String[] parsedInput = input.split(",");
-        this.engWord = parsedInput[0];
-        this.language = parsedInput[1];
+        String trimmedString = input.trim();
+        String[] parsedString = input.split(",");
+        if(!input.contains(",") || trimmedString.indexOf(",") == 0 || trimmedString.indexOf(",") == trimmedString.length()-1){
+            this.engWord = "";
+            this.language = "";
+        } else{
+            this.engWord = parsedString[0];
+            this.language = parsedString[1];
+        }
     }
 
     /**
@@ -36,11 +46,16 @@ public class Translator {
      * corresponding error message number if an exception is thrown.
      */
     public String translate(){
-        String filePath = new File("brokers/").getAbsolutePath();
+        String filePath = new File("").getAbsolutePath();
         filePath = filePath.concat("\\" + this.language.toLowerCase() + ".txt");
         File file = new File(filePath);
         boolean wordFound = false;
         String[] word = new String[0];
+
+        if(this.engWord.equals("") && this.language.equals("")){
+            return "If you're seeing this, your string input wasn't in the correct format," +
+                    "most likely because we coded something wrong. Whoops.";
+        }
 
         try {
             Scanner scan = new Scanner(file);
@@ -51,23 +66,15 @@ public class Translator {
                 }
             }
             if (wordFound) {
-            	scan.close();
                 return word[1];
             } else {
-            	scan.close();
-                return "813";
+                return ServiceBroker.parseInstruction("MESSAGE,813");
             }
         } catch (FileNotFoundException E){
-            return "805";
+            return ServiceBroker.parseInstruction("MESSAGE,805");
         }
     }
-    
     public static void main(String[] args){
-    	if(args[0]!=null && args[1]!=null)
-    	{
-	    	String temp = args[0] + "," + args[1];
-	        Translator t = new Translator(temp);
-	        System.out.println(t.translate());
-    	}
+        Translator t = new Translator("cat,klingon");
     }
 }
