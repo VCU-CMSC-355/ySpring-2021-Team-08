@@ -125,17 +125,15 @@ public class HomePage {
 	
 	static String getData(String command) {
 		String out = "";
-		
 		try {
 		String utilityPath = new File("modules/serviceBroker.jar").getAbsolutePath();
-		
+		System.out.println(utilityPath);
 		String utilityModule = "java -jar \"" + utilityPath + "\" " + command;
-		
-		Process p = Runtime.getRuntime().exec(utilityModule);
+		System.out.println(utilityModule);
+		Process p = Runtime.getRuntime().exec("java -jar /modules/serviceBroker.jar");
 		BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-		
-		out = "test" + moduleOutput.readLine();
-		
+
+		out = moduleOutput.readLine();
 		}
 		catch(IOException e)
 		{

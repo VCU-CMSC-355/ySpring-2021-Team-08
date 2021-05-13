@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-13">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Joshua/.p2/pool/plugins/org.eclipse.osgi_3.16.200.v20210226-1447.jar" sourcepath="C:/Users/Joshua/.p2/pool/plugins/org.eclipse.osgi_3.16.200.v20210226-1447.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Joshua/.p2/pool/plugins/org.eclipse.core.commands_3.9.800.v20201021-1339.jar" sourcepath="C:/Users/Joshua/.p2/pool/plugins/org.eclipse.core.commands_3.9.800.v20201021-1339.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Joshua/.p2/pool/plugins/org.eclipse.equinox.common_3.14.100.v20210212-1143.jar" sourcepath="C:/Users/Joshua/.p2/pool/plugins/org.eclipse.equinox.common_3.14.100.v20210212-1143.jar"/>
