@@ -128,7 +128,7 @@ public class HomePage {
 		try {
 		String utilityPath = new File("modules/serviceBroker.jar").getAbsolutePath();
 
-		String utilityModule = "java -jar \"" + utilityPath + "\" " + command;
+		String utilityModule = "java -jar \"" + utilityPath + "\"" + command;
 
 		Process p = Runtime.getRuntime().exec(utilityModule);
 		BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));

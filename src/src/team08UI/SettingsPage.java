@@ -13,9 +13,9 @@ import org.eclipse.swt.events.SelectionEvent;
 public class SettingsPage {
 
 	protected Shell shell;
-	private Text text;
-	private Text text_1;
-	private Text text_2;
+	private Text oldPasswordInput;
+	private Text newPasswordInput;
+	private Text conNewPasswordInput;
 
 	/**
 	 * Launch the application.
@@ -53,10 +53,10 @@ public class SettingsPage {
 		shell.setSize(450, 300);
 		shell.setText("SWT Application");
 		
-		Label lblSettings = new Label(shell, SWT.NONE);
-		lblSettings.setFont(SWTResourceManager.getFont("Calibri", 16, SWT.NORMAL));
-		lblSettings.setBounds(10, 10, 67, 26);
-		lblSettings.setText("Settings");
+		Label lblSetting = new Label(shell, SWT.NONE);
+		lblSetting.setFont(SWTResourceManager.getFont("Calibri", 16, SWT.NORMAL));
+		lblSetting.setBounds(10, 10, 67, 26);
+		lblSetting.setText("Settings");
 		
 		Label lblTranslatorLanguage = new Label(shell, SWT.NONE);
 		lblTranslatorLanguage.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
@@ -109,14 +109,14 @@ public class SettingsPage {
 		lblOldPassword.setBounds(30, 123, 75, 15);
 		lblOldPassword.setText("Old Password");
 		
-		text = new Text(shell, SWT.BORDER);
-		text.setBounds(30, 144, 125, 21);
+		oldPasswordInput = new Text(shell, SWT.BORDER);
+		oldPasswordInput.setBounds(30, 144, 125, 21);
 		
-		text_1 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
-		text_1.setBounds(161, 144, 125, 21);
+		newPasswordInput = new Text(shell, SWT.BORDER | SWT.PASSWORD);
+		newPasswordInput.setBounds(161, 144, 125, 21);
 		
-		text_2 = new Text(shell, SWT.BORDER | SWT.PASSWORD);
-		text_2.setBounds(292, 144, 125, 21);
+		conNewPasswordInput = new Text(shell, SWT.BORDER | SWT.PASSWORD);
+		conNewPasswordInput.setBounds(292, 144, 125, 21);
 		
 		Label lblNewPassword = new Label(shell, SWT.NONE);
 		lblNewPassword.setBounds(161, 123, 77, 15);
@@ -134,8 +134,8 @@ public class SettingsPage {
 		btnChangePassword.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String t1 = text_1.getText();
-				String t2 = text_2.getText();
+				String t1 = newPasswordInput.getText();
+				String t2 = conNewPasswordInput.getText();
 				
 				if(t1.equals(t2)) {
 				

@@ -13,9 +13,9 @@ import org.eclipse.swt.events.SelectionEvent;
 public class RegisterPage {
 
 	protected Shell shell;
-	private Text text;
-	private Text text_1;
-	private Text text_2;
+	private Text usernameInput;
+	private Text passwordInput;
+	private Text conPasswordInput;
 
 	/**
 	 * Launch the application.
@@ -53,14 +53,14 @@ public class RegisterPage {
 		shell.setSize(450, 300);
 		shell.setText("SWT Application");
 		
-		Label lblNewLabel = new Label(shell, SWT.NONE);
-		lblNewLabel.setFont(SWTResourceManager.getFont("Calibri", 16, SWT.BOLD));
-		lblNewLabel.setBounds(181, 10, 71, 26);
-		lblNewLabel.setText("Register");
+		Label lblRegister = new Label(shell, SWT.NONE);
+		lblRegister.setFont(SWTResourceManager.getFont("Calibri", 16, SWT.BOLD));
+		lblRegister.setBounds(181, 10, 71, 26);
+		lblRegister.setText("Register");
 		
-		text = new Text(shell, SWT.BORDER);
-		text.setToolTipText("Username");
-		text.setBounds(142, 63, 150, 21);
+		usernameInput = new Text(shell, SWT.BORDER);
+		usernameInput.setToolTipText("Username");
+		usernameInput.setBounds(142, 63, 150, 21);
 		
 		Label lblUsername = new Label(shell, SWT.NONE);
 		lblUsername.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
@@ -72,27 +72,27 @@ public class RegisterPage {
 		lblPassword.setBounds(142, 90, 55, 15);
 		lblPassword.setText("Password");
 		
-		text_1 = new Text(shell, SWT.PASSWORD |SWT.BORDER);
-		text_1.setBounds(142, 111, 150, 21);
+		passwordInput = new Text(shell, SWT.PASSWORD |SWT.BORDER);
+		passwordInput.setBounds(142, 111, 150, 21);
 		
 		
 		Label lblConfirmPassword = new Label(shell, SWT.NONE);
 		lblConfirmPassword.setBounds(142, 138, 150, 15);
 		lblConfirmPassword.setText("Confirm Password");
 		
-		text_2 = new Text(shell, SWT.PASSWORD|SWT.BORDER);
-		text_2.setBounds(142, 159, 150, 21);
+		conPasswordInput = new Text(shell, SWT.PASSWORD|SWT.BORDER);
+		conPasswordInput.setBounds(142, 159, 150, 21);
 		
-		Label conPass = new Label(shell, SWT.NONE);
-		conPass.setBounds(138, 215, 158, 15);
-		conPass.setVisible(false);
-		conPass.setText("Make sure passwords match!");
+		Label lblConPass = new Label(shell, SWT.NONE);
+		lblConPass.setBounds(138, 215, 158, 15);
+		lblConPass.setVisible(false);
+		lblConPass.setText("Make sure passwords match!");
 		
 		Button btnRegisterAccount = new Button(shell, SWT.NONE);
 		btnRegisterAccount.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				String t1 = text_1.getText();
-				String t2 = text_2.getText();
+				String t1 = passwordInput.getText();
+				String t2 = conPasswordInput.getText();
 				
 				if(t1.equals(t2)) {
 				shell.dispose();
@@ -100,7 +100,7 @@ public class RegisterPage {
 				hP.open();
 				}
 				else
-					conPass.setVisible(true);
+					lblConPass.setVisible(true);
 				
 			}
 		});

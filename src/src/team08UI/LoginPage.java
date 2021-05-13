@@ -13,8 +13,8 @@ import org.eclipse.swt.events.SelectionEvent;
 public class LoginPage {
 
 	protected Shell shell;
-	private Text txtUsername;
-	private Text text;
+	private Text usernameInput;
+	private Text passwordInput;
 
 	/**
 	 * Launch the application.
@@ -54,30 +54,31 @@ public class LoginPage {
 		shell.setText("SWT Application");
 		shell.setLayout(null);
 		
-		txtUsername = new Text(shell, SWT.BORDER);
-		txtUsername.setToolTipText("Username");
-		txtUsername.setBounds(142, 96, 150, 21);
+		usernameInput = new Text(shell, SWT.BORDER);
+		usernameInput.setBounds(142, 96, 150, 21);
+		usernameInput.setToolTipText("Username");
 		
 		Label lblLogin = new Label(shell, SWT.NONE);
-		lblLogin.setFont(SWTResourceManager.getFont("Calibri", 14, SWT.BOLD));
 		lblLogin.setBounds(193, 10, 62, 34);
+		lblLogin.setFont(SWTResourceManager.getFont("Calibri", 14, SWT.BOLD));
 		lblLogin.setText("Login");
 		
 		Label lblUsername = new Label(shell, SWT.NONE);
-		lblUsername.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
 		lblUsername.setBounds(142, 75, 150, 15);
+		lblUsername.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
 		lblUsername.setText("Username");
 		
 		Label lblPassword = new Label(shell, SWT.NONE);
-		lblPassword.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
 		lblPassword.setBounds(142, 123, 150, 15);
+		lblPassword.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
 		lblPassword.setText("Password");
 		
-		text = new Text(shell, SWT.PASSWORD| SWT.BORDER);
-		text.setToolTipText("Username");
-		text.setBounds(142, 144, 150, 21);
+		passwordInput = new Text(shell, SWT.PASSWORD| SWT.BORDER);
+		passwordInput.setBounds(142, 144, 150, 21);
+		passwordInput.setToolTipText("Username");
 		
 		Button btnLogin = new Button(shell, SWT.NONE);
+		btnLogin.setBounds(142, 171, 75, 25);
 		btnLogin.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				shell.dispose();
@@ -86,10 +87,10 @@ public class LoginPage {
 			}
 		});
 		btnLogin.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
-		btnLogin.setBounds(142, 171, 75, 25);
 		btnLogin.setText("Login");
 		
 		Button btnRegister = new Button(shell, SWT.NONE);
+		btnRegister.setBounds(217, 171, 75, 25);
 		btnRegister.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				shell.dispose();
@@ -98,7 +99,6 @@ public class LoginPage {
 			}
 		});
 		btnRegister.setFont(SWTResourceManager.getFont("Candara", 9, SWT.NORMAL));
-		btnRegister.setBounds(217, 171, 75, 25);
 		btnRegister.setText("Register");
 
 	}

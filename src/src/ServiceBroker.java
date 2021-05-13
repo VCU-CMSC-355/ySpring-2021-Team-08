@@ -138,41 +138,7 @@ public class ServiceBroker {
 					returnCode = 4;
 				}
 				
-				//Tests if the output of a module is an error message. 
-				//If it is, it calls the message module to return that message.
-				/*try
-				{
-					String messagePath = new File(messageFileLocation).getAbsolutePath();
-					File messageFile = new File(messagePath);
-					Scanner messages = new Scanner(messageFile);
-					messages.useDelimiter(",");
-					
-					Boolean message = false;
-					
-					//Searches through the message file to match the returnData to a message code.
-					do
-					{
-						String code = messages.next();
-						
-						if(code.equals(returnData.substring(0,4)))
-						{
-							returnData = parseInstruction("MESSAGE," + code).substring(2);
-							returnCode = code.indexOf(0);
-						}
-						
-						messages.nextLine();
-					}while(foundFlag==false && serviceFile.hasNext());
-				}
-				catch(IndexOutOfBoundsException e)
-				{
-					System.out.println("Oops");
-				}
-				catch(Exception e)
-				{
-					returnData = parseInstruction("MESSAGE,401").substring(2);
-					//returnData += "; " + e.toString();
-					returnCode = 4;
-				}*/
+				
 			}
 			//If we don't find the code, create an error message.
 			else
