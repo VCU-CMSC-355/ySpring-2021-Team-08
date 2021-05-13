@@ -17,7 +17,6 @@ import java.io.*;
  */
 
 public class Messages{ 
-
    public static void main(String[] args){
       //args[0] = "MSG_NUMBER" 
       //args[1] = "Language for you to convert from text file"
@@ -37,8 +36,9 @@ public class Messages{
       
          while(input.hasNextLine()){
             tmp = input.nextLine();
-            if(tmp.substring(0,3).equals(String.valueOf(MsgNumber)) == true)
+            if(tmp.substring(0,3).equals(String.valueOf(MsgNumber)) == true){
                errorMsg = tmp.substring(4); 
+            }
          }   
       
          input.close();

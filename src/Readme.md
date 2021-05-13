@@ -1,8 +1,9 @@
 # Source Code Folder
 To be structured as needed by project team.
 
-Please document here
 | Subdirectory Name | Description |
 |---|---|
-| Messages | Contains an executible jar file converted from Messages.java and a .txt file of the error codes to be scanned and used by code |
-| src | Contains origininal Messages.java code |
+| brokers | Contains the broker files. (Ex.: service.txt) |
+| modules | Where the tax calculator, message, and translator modules are stored (as .jar files). |
+| src | Contains the original .java files and junit tests. |
+| translateModule | Currently holds the original translateModule .java files. |
