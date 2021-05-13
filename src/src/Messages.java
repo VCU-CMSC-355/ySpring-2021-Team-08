@@ -20,7 +20,8 @@ public class Messages{
    public static void main(String[] args){
       //args[0] = "MSG_NUMBER" 
       //args[1] = "Language for you to convert from text file"
-	  int MsgNumber;
+	  
+	   int MsgNumber;
 	  if(args.length == 0)
 		  System.out.println("Index out of bounds");
 	  else {

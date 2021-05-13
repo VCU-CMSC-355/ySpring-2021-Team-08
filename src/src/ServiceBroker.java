@@ -26,7 +26,7 @@ public class ServiceBroker {
 	{
 		//for(String arg : args)
 		{
-			System.out.println(parseInstruction("TRANSLATE,cat,spanish"));
+			
 		}
 	}
 	
