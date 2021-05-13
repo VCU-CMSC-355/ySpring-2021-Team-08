@@ -96,7 +96,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void messageTest1() {
 		String input = "MESSAGE,404";
-		String expected = "4,Opcode Not Found";
+		String expected = "0,Opcode Not Found";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	
@@ -112,7 +112,7 @@ public class ServiceBrokerTest {
 	@Test
 	public void messageTest3() {
 		String input = "MESSAGE,401";
-		String expected = "4,General Error";
+		String expected = "0,General Error";
 		String output = ServiceBroker.parseInstruction(input);
 		
 		assertEquals(expected, output);	

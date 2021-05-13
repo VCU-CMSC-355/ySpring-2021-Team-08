@@ -31,7 +31,8 @@ public class Messages{
    
    static void returnMessage(int MsgNumber){ 
       try {
-         Scanner input = new Scanner(new File("MessageList.txt"));
+    	 String brokerPath = new File("brokers/message.txt").getAbsolutePath();
+         Scanner input = new Scanner(new File(brokerPath));
          String tmp="", errorMsg="";
       
          while(input.hasNextLine()){
