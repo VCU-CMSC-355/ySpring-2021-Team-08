@@ -11,7 +11,7 @@ public class hardness {
         }*/
 		
 		String input = "MESSAGE,401";
-		//String expected = "0,Word Not Found";
+		//String expected = "0,General Error";
 		String output = ServiceBroker.parseInstruction(input);
 		System.out.println(output);
 		
