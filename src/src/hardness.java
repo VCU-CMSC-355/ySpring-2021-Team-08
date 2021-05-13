@@ -23,6 +23,6 @@ public class hardness {
 			String input2 = "TAX,2020,10000,S";
 			//String expected = "0,1002.5";
 			String output2 = ServiceBroker.parseInstruction(input2);
-			System.out.println(output2);
+			System.out.println(output2); 
     }
 }
