@@ -14,7 +14,7 @@ import org.eclipse.swt.events.SelectionEvent;
 public class TaxPage {
 
 	protected Shell shell;
-	private Text text;
+	private Text incomeInput;
 
 	/**
 	 * Launch the application.
@@ -68,8 +68,8 @@ public class TaxPage {
 		sTxYr.setFont(SWTResourceManager.getFont("Calibri", 10, SWT.NORMAL));
 		sTxYr.setText("Tax Year");
 		
-		Label label = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
-		label.setBounds(216, 70, 2, 64);
+		Label seperator = new Label(shell, SWT.SEPARATOR | SWT.VERTICAL);
+		seperator.setBounds(216, 70, 2, 64);
 		
 		Label sType = new Label(shell, SWT.NONE);
 		sType.setBounds(45, 100, 30, 19);
@@ -87,8 +87,8 @@ public class TaxPage {
 		sGrsIcm.setFont(SWTResourceManager.getFont("Calibri", 9, SWT.NORMAL));
 		sGrsIcm.setText("Gross Income");
 		
-		text = new Text(shell, SWT.BORDER);
-		text.setBounds(134, 150, 67, 21);
+		incomeInput = new Text(shell, SWT.BORDER);
+		incomeInput.setBounds(134, 150, 67, 21);
 		
 		Label sEstTx = new Label(shell, SWT.NONE);
 		sEstTx.setBounds(250, 50, 122, 19);

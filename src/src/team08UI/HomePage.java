@@ -118,6 +118,15 @@ public class HomePage {
 		lblHome.setBounds(10, 10, 99, 52);
 		lblHome.setText("Home");
 		
+		Button btnTest = new Button(shell, SWT.NONE);
+		btnTest.setBounds(150, 245, 75, 25);
+		btnTest.setText("test");
+		btnTest.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				getData(" ");
+			}
+		});
+		
 
 
 
@@ -127,18 +136,19 @@ public class HomePage {
 		String out = "";
 		try {
 		String utilityPath = new File("modules/serviceBroker.jar").getAbsolutePath();
-
+		System.out.println(utilityPath);
 		String utilityModule = "java -jar \"" + utilityPath + "\"" + command;
-
+		System.out.println(utilityModule);
 		Process p = Runtime.getRuntime().exec(utilityModule);
 		BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
-		out = moduleOutput.readLine();
+		//out = moduleOutput.readLine();
 		}
 		catch(IOException e)
 		{
 			System.out.println(e);
 		}
+		
 		return out;
 	}
 }

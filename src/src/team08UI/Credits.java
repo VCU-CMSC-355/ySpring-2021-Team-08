@@ -49,10 +49,12 @@ public class Credits {
 		shell.setSize(450, 300);
 		shell.setText("SWT Application");
 		
-		Label lblNewLabel = new Label(shell, SWT.NONE);
-		lblNewLabel.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
-		lblNewLabel.setBounds(68, 137, 298, 25);
-		lblNewLabel.setText("We're getting there! Full credits after Sprint 3.");
+		Label lblCredits = new Label(shell, SWT.NONE);
+		lblCredits.setAlignment(SWT.CENTER);
+		lblCredits.setFont(SWTResourceManager.getFont("Calibri", 12, SWT.NORMAL));
+		lblCredits.setBounds(39, 36, 356, 177);
+		lblCredits.setText("A translator and tax calculator"+"\nCreated by Team 08"+"\nHaley Currence - Service Broker and Debugging"+"\nStephen Liu - Translator Page and Psuecode"+"\nJoshua Lopez-Boutier - UI and Psuedocode"
+		+ "\nShashank - Message Module" + "\nMunim - Tax Calculator");
 		
 		Button btnHome = new Button(shell, SWT.NONE);
 		btnHome.addSelectionListener(new SelectionAdapter() {
