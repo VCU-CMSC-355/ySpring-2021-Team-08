@@ -4,11 +4,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -118,37 +113,8 @@ public class HomePage {
 		lblHome.setBounds(10, 10, 99, 52);
 		lblHome.setText("Home");
 		
-		Button btnTest = new Button(shell, SWT.NONE);
-		btnTest.setBounds(150, 245, 75, 25);
-		btnTest.setText("test");
-		btnTest.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				getData(" ");
-			}
-		});
-		
 
 
 
-	}
-	
-	static String getData(String command) {
-		String out = "";
-		try {
-		String utilityPath = new File("modules/serviceBroker.jar").getAbsolutePath();
-		System.out.println(utilityPath);
-		String utilityModule = "java -jar \"" + utilityPath + "\"" + command;
-		System.out.println(utilityModule);
-		Process p = Runtime.getRuntime().exec(utilityModule);
-		BufferedReader moduleOutput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-		//out = moduleOutput.readLine();
-		}
-		catch(IOException e)
-		{
-			System.out.println(e);
-		}
-		
-		return out;
 	}
 }
