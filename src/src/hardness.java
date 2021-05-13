@@ -15,7 +15,7 @@ public class hardness {
 		String output = ServiceBroker.parseInstruction(input);
 		System.out.println(output);
 		
-			String input1 = "TRANSLATE,cat,klingon";
+			String input1 = "TRANSLATE,cat,spanish";
 			//String expected1 = "0,gato";
 			String output1 = ServiceBroker.parseInstruction(input1);
 			System.out.println(output1);
