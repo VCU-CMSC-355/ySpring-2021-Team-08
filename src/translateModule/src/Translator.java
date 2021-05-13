@@ -68,10 +68,13 @@ public class Translator {
             if (wordFound) {
                 return word[1];
             } else {
-                return "MESSAGE,813"; //will later be implemented with ServiceBroker module
+                return ServiceBroker.parseInstruction("MESSAGE,813");
             }
         } catch (FileNotFoundException E){
-            return "MESSAGE,805"; //will later be implemented with ServiceBroker module
+            return ServiceBroker.parseInstruction("MESSAGE,805");
         }
+    }
+    public static void main(String[] args){
+        Translator t = new Translator("");
     }
 }
