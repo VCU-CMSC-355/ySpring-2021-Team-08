@@ -78,6 +78,7 @@ public class Translator {
     	if(args[0]!=null && args[1]!=null)
     	{
 	    	String temp = args[0] + " " + args[1];
+	    	//String temp = "cat german";
 	        Translator t = new Translator(temp);
 	        System.out.println(t.translate());
     	}

@@ -21,13 +21,12 @@ import java.io.*;
 public class ServiceBroker {
 	
 	protected static String brokerFileLocation = "brokers/service.txt";
-	protected static String messageFileLocation = "modules/message.txt";
 	
 	public static void main(String[] args)
 	{
 		//for(String arg : args)
 		{
-			parseInstruction("TRANSLATE,cat,spanish");
+			System.out.println(parseInstruction("TRANSLATE,cat,spanish"));
 		}
 	}
 	
