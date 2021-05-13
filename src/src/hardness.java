@@ -15,12 +15,12 @@ public class hardness {
 		String output = ServiceBroker.parseInstruction(input);
 		System.out.println(output);
 		
-			String input1 = "TRANSLATE,cat,spanish";
+			String input1 = "TRANSLATE,cat,german";
 			//String expected1 = "0,gato";
 			String output1 = ServiceBroker.parseInstruction(input1);
 			System.out.println(output1);
 			
-			String input2 = "TAX,2020,10000,S";
+			String input2 = "TAX,2020,40002,S";
 			//String expected = "0,1002.5";
 			String output2 = ServiceBroker.parseInstruction(input2);
 			System.out.println(output2); 
