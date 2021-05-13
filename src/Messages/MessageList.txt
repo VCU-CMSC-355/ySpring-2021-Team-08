@@ -1,0 +1,6 @@
+401,General Error 
+402,No Arguments Found 
+403,File Not Found/Command Not Recognized 
+404,Opcode Not Found 
+805,This application does not support that language. 
+813,Word Not Found
