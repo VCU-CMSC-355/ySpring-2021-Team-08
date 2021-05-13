@@ -17,11 +17,17 @@ import java.io.*;
  */
 
 public class Messages{ 
-   
-	public static void main(String[] args)
-	{
-		returnMessage(Integer.parseInt(args[0]));   
-	}
+   public static void main(String[] args){
+      //args[0] = "MSG_NUMBER" 
+      //args[1] = "Language for you to convert from text file"
+	  int MsgNumber;
+	  if(args.length == 0)
+		  System.out.println("Index out of bounds");
+	  else {
+		  MsgNumber = Integer.parseInt(args[0]);
+      	  returnMessage(MsgNumber);
+	  }
+   }
    
    static void returnMessage(int MsgNumber){ 
       try {
@@ -41,7 +47,6 @@ public class Messages{
       } catch (FileNotFoundException e) { 
          System.out.println("FileNotFoundException");
       }
-   }
+   } 
    
 }//end class
-
