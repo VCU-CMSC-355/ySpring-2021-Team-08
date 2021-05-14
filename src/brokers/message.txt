@@ -1,6 +1,6 @@
 ,How did we get here?
 401,General Error
-402,Not Arguments Found
+402,No Arguments Found
 403,File Not Found/Command Not Recognized
 404,Opcode Not Found
 805,This application does not support that language.
