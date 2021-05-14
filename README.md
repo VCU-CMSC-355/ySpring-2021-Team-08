@@ -4,7 +4,9 @@
 _*To preserve the integrity of the ```master``` branch, our group has elected to push each of our individually-coded modules to separate version branches named after the author. During integration testing, branches will be integrated one-by-one into the ```integrationTesting``` branch. Once integration testing is complete, the fully-integrated and working result will be pushed to ```master```.*_
 
 Command-Line Directions: In the parent ```src``` folder, call the service broker with your command passed in as an argument. 
-  Example: ```java -jar serviceBroker.java TRANSLATE,cat,german```
+
+_Example: ```java -jar serviceBroker.java TRANSLATE,cat,german```_
+
 IDE Directions: Use ```harness.java``` to run the serviceBroker against any commands using the console.
 
 ## Project Organization
