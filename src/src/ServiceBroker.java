@@ -24,9 +24,9 @@ public class ServiceBroker {
 	
 	public static void main(String[] args)
 	{
-		//for(String arg : args)
+		for(String arg : args)
 		{
-			System.out.println(parseInstruction("TRANSLATE,cat,german"));
+			System.out.println(parseInstruction(arg));
 		}
 	}
 	
