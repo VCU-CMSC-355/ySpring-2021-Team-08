@@ -5,7 +5,7 @@ _*To preserve the integrity of the ```master``` branch, our group has elected to
 
 Command-Line Directions: In the parent ```src``` folder, call the service broker with your command passed in as an argument. 
 
-_Example: ```java -jar serviceBroker.java TRANSLATE,cat,german```_
+_Example: ```java -jar serviceBroker.jar TRANSLATE,cat,german```_
 
 IDE Directions: Use ```harness.java``` to run the serviceBroker against any commands using the console.
 
